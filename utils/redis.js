@@ -9,7 +9,7 @@ class RedisClient{
     this.client.promisifiedGet = promisify(this.client.get).bind(this.client);
   }
 
-  isAlive() {
+    isAlive() {
     return this.client.connected;
   }
 
