@@ -2,14 +2,14 @@
 const { createClient } = require('redis');
 const { promisify } = require('util');
 
-class RedisClient{
-  constructor(){
+class RedisClient {
+  constructor() {
     this.client = createClient();
     this.client.on('error', (err) => console.log(err.message));
     this.client.promisifiedGet = promisify(this.client.get).bind(this.client);
   }
 
-    isAlive() {
+  isAlive() {
     return this.client.connected;
   }
 
