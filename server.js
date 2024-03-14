@@ -1,14 +1,12 @@
 const express = require('express');
-const router = require('./routes/index');
+const allRoutes = require('./routes/index');
 
 const app = express();
-app.use(express.json());
-app.use(router);
-
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
-  console.log('Express app is listening on port', port);
-});
+app.use(express.json());
+// sets all the routes created in routes/index
+app.use('/', allRoutes);
 
+app.listen(port);
 module.exports = app;
